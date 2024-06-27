@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>bim_interface</name>
+  <version>1.0.0</version>
+  <description>Package containing the different BIM backends and all the necessary ROS-agnostic base
+    classes</description>
+
+  <author>Tobit Flatscher</author>
+  <maintainer email="michael.terzer@fraunhofer.it">Michael Terzer</maintainer>
+
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclpy</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

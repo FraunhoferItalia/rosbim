@@ -1,0 +1,5 @@
+# Load building information file to ROSBIM manager
+
+string file_path
+---
+bool success

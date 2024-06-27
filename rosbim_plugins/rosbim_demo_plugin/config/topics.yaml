@@ -1,0 +1,8 @@
+service:
+  name: "~/some_service"
+
+testing:
+  init_topic: "~/init"
+  start_topic: "~/start"
+  stop_topic: "~/stop"
+  service_topic: "~/service"

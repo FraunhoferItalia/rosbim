@@ -1,0 +1,6 @@
+__pycache__/
+build
+install
+log
+.vscode
+/rosbim_example_models/models/temp/

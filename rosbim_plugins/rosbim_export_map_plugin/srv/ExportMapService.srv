@@ -1,0 +1,9 @@
+# Export a map with a given solution at given cross-section heights
+
+float64 resolution
+float64[] section_heights
+---
+bool success
+string map_file
+string config_file
+

@@ -1,0 +1,4 @@
+# Service for listing all loaded plug-ins
+
+---
+PluginState[] plugins

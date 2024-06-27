@@ -1,0 +1,5 @@
+# Stop plug-in by specifying its package name
+
+string package_name
+---
+bool success

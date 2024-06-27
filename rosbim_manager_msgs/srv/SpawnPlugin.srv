@@ -1,0 +1,5 @@
+# Spawn plug-in by supplying its package name
+
+Plugin plugin
+---
+bool success

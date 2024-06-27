@@ -1,0 +1,5 @@
+# Switch the backend of the ROSBIM manager
+
+string backend_type
+---
+bool success

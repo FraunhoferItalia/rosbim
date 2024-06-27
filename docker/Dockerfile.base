@@ -1,0 +1,118 @@
+FROM ros:humble
+ENV ROS_WS_DIR="/rosbim"
+WORKDIR ${ROS_WS_DIR}
+SHELL ["/bin/bash", "-c"]
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Installation of IfcOpenShell and its dependencies
+# Pretty unhandy and slow (up to 4 hours on modern HW with 8 cores) without Conda!
+RUN apt-get -y update && \
+    apt-get -y install \
+    git \
+    cmake \
+    gcc \
+    g++ \
+    libboost-all-dev \
+    libcgal-dev \
+    libfreeimage* \
+    libpcre3-dev \
+    libxml2-dev \
+    tcl-dev \
+    tk-dev \
+    libfreetype6-dev \
+    libgl1-mesa-dev \ 
+    libxmu-dev \
+    libxi-dev \
+    python3-pil \
+    rapidjson-dev \
+    swig
+
+RUN apt-get -y update && \
+    cd / && \
+    git clone -b V7_5_0 --single-branch --depth=1 https://github.com/Open-Cascade-SAS/OCCT && \
+    cd OCCT && \ 
+    mkdir build && \
+    cd build && \
+    cmake .. -DUSE_FREEIMAGE=true && \
+    make -j$(nproc) && \
+    make -j$(nproc) install
+
+RUN apt-get -y update && \
+    cd / && \
+    git clone -b 7.5.0rc1 --single-branch --depth=1 https://github.com/tpaviot/pythonocc-core && \
+    cd pythonocc-core && \
+    mkdir build && \
+    cd build && \
+    cmake .. && \
+    make -j$(nproc) && \
+    make -j$(nproc) install
+
+RUN apt-get -y update && \
+    cd / && \
+    git clone --depth=1 https://github.com/KhronosGroup/OpenCOLLADA.git && \
+    cd OpenCOLLADA && \
+    mkdir build && \
+    cd build && \
+    cmake .. && \
+    make -j$(nproc) && \
+    make -j$(nproc) install
+
+RUN apt-get -y update && \
+    cd / && \
+    git clone --depth=1 --recursive https://github.com/IfcOpenShell/IfcOpenShell && \
+    cd IfcOpenShell && \
+    git submodule init && \
+    git submodule update && \
+    mkdir build && \
+    cd build && \
+    cmake ../cmake -DOCC_INCLUDE_DIR=/usr/local/include/opencascade \
+    -DOCC_LIBRARY_DIR=/usr/local/lib \
+    -DOPENCOLLADA_INCLUDE_DIR="/usr/local/include/opencollada" \
+    -DOPENCOLLADA_LIBRARY_DIR="/usr/local/lib/opencollada"  \
+    -DPCRE_LIBRARY_DIR=/usr/lib/x86_64-linux-gnu \
+    -DCGAL_INCLUDE_DIR=/usr/include \
+    -DGMP_INCLUDE_DIR=/usr/include \
+    -DMPFR_INCLUDE_DIR=/usr/include \
+    -DGMP_LIBRARY_DIR=/usr/lib/x86_64-linux-gnu \
+    -DMPFR_LIBRARY_DIR=/usr/lib/x86_64-linux-gnu \
+    -DHDF5_SUPPORT=Off && \
+    make -j8 && \
+    make -j8 install
+
+RUN apt-get -y update && apt-get -y install \
+    checkinstall \
+    git \
+    libboost-dev \
+    libdw-dev \
+    libqt5svg5-dev \
+    libzmq3-dev 
+
+RUN apt-get -y update && apt-get -y install \
+    python3-osrf-pycommon \
+    python3-vcstool \
+    python3-wrapt \
+    qtbase5-dev \
+    python3-pyqt5 \
+    python3-yaml \
+    python-is-python3 
+
+# Installation of several general ROS packages
+RUN apt-get -y update && apt-get -y install \
+    checkinstall \
+    git \
+    libboost-dev \
+    libdw-dev \
+    libqt5svg5-dev \
+    libzmq3-dev 
+
+RUN apt-get -y update && apt-get -y install \
+    python3-osrf-pycommon \
+    python3-vcstool \
+    python3-wrapt \
+    qtbase5-dev \
+    python3-pyqt5 \
+    python3-yaml \
+    python-is-python3 \
+    terminator 
+
+ENV DEBIAN_FRONTEND=interactive

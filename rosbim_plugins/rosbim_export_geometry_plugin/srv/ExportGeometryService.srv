@@ -1,0 +1,26 @@
+# Export a BIM geometry to individual mesh files or a single mesh file
+# The filter allows to select only elements that match particular search
+# strings and that are then exported.
+# Filters might be connected with logical operators such as e.g.
+# "(Window or Door)" or "(Wall or Door or Window)".
+# Not that Window or Door means that a part will be exported if it is
+# either a window or a door!
+# With the flag is_export_separately all the objects that have to be 
+# exported are saved as individual files.
+
+string ALL=""
+string WINDOW="Window"
+string DOOR="Door"
+string WALL="Wall"
+string FURNITURE="Furniture"
+
+uint8 OBJ=0
+uint8 DAE=1
+uint8 STL=2
+
+string geometry_filter
+bool is_export_separately
+uint8 export_format
+---
+bool success
+string[] geometry_files

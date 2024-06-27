@@ -1,0 +1,5 @@
+# Load plug-in by specifying its package name
+
+Plugin plugin
+---
+bool success

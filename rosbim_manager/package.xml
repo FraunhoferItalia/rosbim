@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>rosbim_manager</name>
+  <version>1.0.0</version>
+  <description>Package containing the ROSBIM manager instance</description>
+
+  <author>Tobit Flatscher</author>
+  <maintainer email="michael.terzer@fraunhofer.it">Michael Terzer</maintainer>
+
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>bim_interface</exec_depend>
+  <depend>rosbim_manager_msgs</depend>
+  <depend>rclpy</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

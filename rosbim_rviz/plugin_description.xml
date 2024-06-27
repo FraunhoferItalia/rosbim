@@ -1,0 +1,11 @@
+<library path="rosbim_rviz">
+  <class
+      name="rosbim_rviz/RosbimDisplay"
+      type="rosbim_rviz::RosbimDisplay"
+      base_class_type="rviz_common::Display">
+    <description>
+      A display widget for displaying BIM geometries inside RViz using the ROSBIM export geometry
+      plug-in
+    </description>
+  </class>
+</library>

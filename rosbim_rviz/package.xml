@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>rosbim_rviz</name>
+  <version>0.0.1</version>
+  <description>
+    RViz tools for displaying a BIM geometry inside RViz with ROSBIM
+  </description>
+  <author>Tobit Flatscher</author>
+  <maintainer email="michael.terzer@fraunhofer.it">Michael Terzer</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>rclcpp_components</depend>
+
+  <depend>rviz_common</depend>
+  <depend>rviz_rendering</depend>
+  <depend>rviz_ogre_vendor</depend>
+  <depend>rviz_default_plugins</depend>
+  <depend>qtbase5-dev</depend>
+  <depend>libqt5-core</depend>
+  <depend>libqt5-gui</depend>
+  <depend>libqt5-widgets</depend>
+  <depend>pluginlib</depend>
+  <depend>rosbim_export_geometry_plugin</depend>
+
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <rviz plugin="${prefix}/plugin_description.xml" />
+  </export>
+</package>
