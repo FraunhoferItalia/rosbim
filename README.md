@@ -11,8 +11,8 @@ This README contains the few basic steps to install and run an example of ROSBIM
 
 ## Installation
 
-The repository comes with a docker setup that is divided into two containers. The base container contains installations of IfcOpenShell, OpenCollada, OCCT and pythonocc-core from source. The compilation of these repositories is time intensive wherefore the prebuild image can be pulled from the dockerhub here.
-
+The repository comes with a docker setup that is divided into two containers. The base container contains installations of IfcOpenShell, OpenCollada, OCCT and pythonocc-core from source. The compilation of these repositories is time intensive wherefore the prebuild image can be pulled from the dockerhub [here](https://hub.docker.com/r/fraunhoferitalia/rosbim).
+Once the base image has been pulled or build, start the application container by:
 ```
 docker compose -f docker/docker-compose-app.yml up
 ```

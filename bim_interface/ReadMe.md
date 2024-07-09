@@ -2,10 +2,6 @@
 
 Author(s): Tobit Flatscher (March 2022)
 
-This is a markdown document and is best viewed in a dedicated markdown editor such as [Typora](https://typora.io/).
-
-
-
 ## Description
 
 This package holds the individual BIM interfaces for ROSBIM, such as `ifcopenshell` interface based on the IfcOpenShell package. This code is designed in such a way that it can also be used independently without ROS as a wrapper library with a standardised interface. A ROS wrapper is provided by the `rosbim_manager` package.
