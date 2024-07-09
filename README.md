@@ -33,9 +33,9 @@ ROSBIM is licensed under the terms of the Apache License 2.0. The project has re
 
 ```
 @article{Terzer2024,
- title = {Facilitated Construction Robot Programming based on Building Information Modelling},
+ title = {A Facilitated Construction Robot Programming Approach using Building Information Modelling},
  author = {Terzer, Michael and Flatscher, Tobit and Magri, Marco and Garbin, Simone and Emig, Julius and Giusti, Andrea},
- journal = {10th International Conference on Control, Decision and Information Technologies},
+ journal = {10th International Conference on Control, Decision and Information Technologies CoDIT24},
  year = {2024},
  note = {to be published},
  publisher={IEEE}
